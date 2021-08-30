@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_100"
+        android:layout_marginStart="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_10"
+        android:layout_marginEnd="@dimen/margin_10"
+        android:background="@drawable/border"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:id="@+id/welcome_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginEnd="@dimen/margin_10"
+            android:text="@string/bienvenido_1"
+            android:fontFamily="sans-serif"
+            android:textSize="@dimen/welcome_text"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/welcome_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginEnd="@dimen/margin_10"
+            android:text="@string/bienvenido_2"
+            android:textSize="@dimen/welcome_text"
+            android:gravity="center_horizontal" />
+
+        <TextView
+            android:id="@+id/welcome_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:layout_marginTop="@dimen/margin_10"
+            android:layout_marginStart="@dimen/margin_10"
+            android:layout_marginEnd="@dimen/margin_10"
+            android:layout_marginBottom="@dimen/margin_10"
+            android:text="@string/bienvenido_3"
+            android:textSize="@dimen/welcome_text"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</FrameLayout>
