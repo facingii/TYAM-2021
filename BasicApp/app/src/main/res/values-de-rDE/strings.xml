@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BasicApp</string>
+    <string name="bienvenido_1">Willkomen 1</string>
+    <string name="bienvenido_2">Willkomen 2</string>
+    <string name="bienvenido_3">Willkomen 3</string>
+</resources>
