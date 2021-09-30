@@ -3,6 +3,7 @@ package com.outlook.gonzasosa.basicapp;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -32,6 +33,7 @@ public class MainActivity extends Activity {
     public static final String PICTURE = "picture";
     public static final String TAG = "MyFirstApp";
     public static final int REQUEST_CODE_CALL_PHONE = 1001;
+    public static final int REQUEST_CODE_FOR_RESULT = 2001;
 
     EditText edtName, edtLastname, edtAge, edtAddress;
     ImageView picture;
@@ -53,7 +55,12 @@ public class MainActivity extends Activity {
         Button btnInformation = findViewById (R.id.btnInformation);
         btnInformation.setOnClickListener (view -> {
             Intent intent = new Intent (getBaseContext (), SecondActivity.class);
-            startActivity (intent);
+            intent.putExtra (NAME, edtName.getText().toString());
+            intent.putExtra (LASTNAME, edtLastname.getText().toString());
+            intent.putExtra (AGE, edtAge.getText().toString ());
+            intent.putExtra (ADDRESS, edtAddress.getText().toString ());
+
+            startActivityForResult (intent, REQUEST_CODE_FOR_RESULT);
         });
 
         // invoking phone call dialer using implicit intents
@@ -71,6 +78,12 @@ public class MainActivity extends Activity {
 
             // only when the user has permmited phone calls the app is enable to do that
             doPhoneCall ();
+        });
+
+        Button btnThird = findViewById (R.id.btnThirdActivity);
+        btnThird.setOnClickListener (view -> {
+            Intent intent = new Intent (getBaseContext(), ThirdActivity.class);
+            startActivity (intent);
         });
 
         Log.i (TAG, "OnCreate");
@@ -189,9 +202,30 @@ public class MainActivity extends Activity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_FOR_RESULT && resultCode == RESULT_OK) {
+            Log.i (TAG, "Data arrived");
+        }
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
-        Log.i (TAG, "OnStart");
+
+        SharedPreferences sharedPreferences = getSharedPreferences ("UserInfo", MODE_PRIVATE);
+        String name = sharedPreferences.getString (NAME, "");
+        edtName.setText (name);
+
+        String lastName = sharedPreferences.getString (LASTNAME, "");
+        edtLastname.setText (lastName);
+
+        String age = sharedPreferences.getString (AGE, "");
+        edtAge.setText (age);
+
+        String address = sharedPreferences.getString (ADDRESS, "");
+        edtAddress.setText (address);
     }
 
     @Override
@@ -209,7 +243,14 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i (TAG, "OnStop");
+
+        SharedPreferences sharedPreferences = getSharedPreferences ("UserInfo", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit ();
+        editor.putString (NAME, edtName.getText ().toString ());
+        editor.putString (LASTNAME, edtLastname.getText ().toString ());
+        editor.putString (AGE, edtAge.getText ().toString ());
+        editor.putString (ADDRESS, edtAddress.getText ().toString ());
+        editor.apply ();
     }
 
     @Override
