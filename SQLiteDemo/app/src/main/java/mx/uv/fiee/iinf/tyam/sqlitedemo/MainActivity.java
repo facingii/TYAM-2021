@@ -1,5 +1,6 @@
 package mx.uv.fiee.iinf.tyam.sqlitedemo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     ContactsDatabase database;
     ArrayList<Contact> contacts;
     RecyclerView recyclerView;
@@ -67,7 +68,7 @@ class MyContactsAdapter extends RecyclerView.Adapter<MyContactsVH> {
     @Override
     public MyContactsVH onCreateViewHolder (@NonNull ViewGroup viewGroup, int i) {
         LayoutInflater inflater = LayoutInflater.from (context);
-        View view = inflater.inflate (android.R.layout.simple_list_item_2, viewGroup, false);
+        View view = inflater.inflate (R.layout.item, viewGroup, false);
 
         return new MyContactsVH (view);
     }
@@ -75,7 +76,7 @@ class MyContactsAdapter extends RecyclerView.Adapter<MyContactsVH> {
     @Override
     public void onBindViewHolder (@NonNull MyContactsVH myContactsVH, int i) {
         Contact contact = contacts.get (i);
-        myContactsVH.bind (contact.getName (), contact.getPhone ());
+        myContactsVH.bind (contact.getName (), contact.getPhone (), String.valueOf (contact.getId()));
     }
 
     @Override
@@ -87,15 +88,18 @@ class MyContactsAdapter extends RecyclerView.Adapter<MyContactsVH> {
 class MyContactsVH extends RecyclerView.ViewHolder {
     private TextView text1;
     private TextView text2;
+    private TextView text3;
 
     MyContactsVH (@NonNull View itemView) {
         super (itemView);
-        text1 = itemView.findViewById (android.R.id.text1);
-        text2 = itemView.findViewById (android.R.id.text2);
+        text1 = itemView.findViewById (R.id.myText1);
+        text2 = itemView.findViewById (R.id.myText2);
+        text3 = itemView.findViewById (R.id.myText3);
     }
 
-    void bind (String t1, String t2) {
+    void bind (String t1, String t2, String t3) {
         text1.setText (t1);
         text2.setText (t2);
+        text3.setText (t3);
     }
 }
