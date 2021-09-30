@@ -9,7 +9,7 @@ import java.util.List;
 
 @Dao
 public interface ContactDao {
-    @Query ("SELECT * FROM contact")
+    @Query ("SELECT full_name, phone_number FROM contact ORDER BY id DESC")
     List<Contact> getAll ();
 
     @Query ("SELECT * FROM contact WHERE full_name LIKE :name LIMIT 1")

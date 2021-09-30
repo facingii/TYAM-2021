@@ -1,5 +1,6 @@
 package mx.uv.fiee.iinf.roomlibrarydemo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +17,7 @@ import androidx.room.Room;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     ArrayList<Contact> contacts;
     AppDatabase database;
     RecyclerView contactList;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     new Contact ("Abigail Zamora", "34243654"),
                     new Contact ("Manuel Cartas", "456456457"));
         }
+
     }
 
     @Override
