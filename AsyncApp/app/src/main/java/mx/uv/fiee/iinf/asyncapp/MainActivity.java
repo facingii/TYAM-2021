@@ -128,7 +128,7 @@ public class MainActivity extends Activity {
         MyAsync<Bitmap> myAsync = new MyAsync<>(new SephiaCallable (bitmap));
         myAsync.setTaskDoneListener (() -> {
             try {
-                Bitmap bmp = myAsync.get ();
+                Bitmap bmp = myAsync.get (); // bloqueante
 
                 this.runOnUiThread (() -> {
                     ivCanvas.setImageBitmap (bmp);
