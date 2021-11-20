@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+def _GOOGLE_ID_CLIENT_TOKEN = '"' + google_id_client_token + '"' ?: 'DEFINE YOUR ID CLIENT TOKEN'
+def _CLIENT_ID = '"' + client_id + '"' ?: 'DEFINE YOUR OAUTH2 CLIENT ID'
+def _CLIENT_SECRET = '"' + client_secret + '"' ?: 'DEFINE YOUR OAUTH2 CLIENT SECRET'
+def _OAUTH_URL_CALLBACK = '"' + oauth_url_callback + '"' ?: 'DEFINE YOUR CALLBACK'
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
+
+    defaultConfig {
+        applicationId "mx.uv.fiee.iinf.fbemailauthenticationapp"
+        minSdkVersion 23
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            buildConfigField 'String', 'GOOGLE_ID_CLIENT_TOKEN', _GOOGLE_ID_CLIENT_TOKEN
+            buildConfigField 'String', 'CLIENT_ID', _CLIENT_ID
+            buildConfigField 'String', 'CLIENT_SECRET', _CLIENT_SECRET
+            buildConfigField 'String', 'OAUTH_URL_CALLBACK', _OAUTH_URL_CALLBACK
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:latest.release'
+    implementation 'com.google.android.material:material:latest.release'
+
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-core:latest.release'
+    implementation 'com.google.firebase:firebase-auth:latest.release'
+
+    implementation 'com.google.android.gms:play-services-auth:latest.release'
+    implementation 'com.google.code.gson:gson:2.8.6'
+}

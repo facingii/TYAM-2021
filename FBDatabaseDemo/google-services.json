@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "756262181757",
+    "project_id": "proyectotym2021",
+    "storage_bucket": "proyectotym2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756262181757:android:549f23b66b7ed619efca14",
+        "android_client_info": {
+          "package_name": "mx.uv.fiee.iinf.fbemailauthenticationapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756262181757-jnr3ki0forslkuj73i8comfgptdgb07i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.uv.fiee.iinf.fbemailauthenticationapp",
+            "certificate_hash": "c0518281b00614969f33af5ec46e68f5c5eb7c48"
+          }
+        },
+        {
+          "client_id": "756262181757-go1a97h54no7ano6u5snrrmsbe92qp2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD304UzvF3lFt5hETT5vclvm8X75fWU7os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756262181757-go1a97h54no7ano6u5snrrmsbe92qp2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
