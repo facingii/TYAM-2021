@@ -1,0 +1,31 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "31.0.0"
+
+    defaultConfig {
+        applicationId "com.outlook.gonzasosa.apps.espressouitest"
+        minSdkVersion 23
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:latest.release'
+    testImplementation 'junit:junit:latest.release'
+    implementation 'androidx.test:core:latest.release'
+    implementation 'androidx.test.ext:junit:latest.release'
+    implementation 'androidx.test.espresso:espresso-contrib:latest.release'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:latest.release'
+}
