@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/blankFragment">
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.outlook.gonzasosa.architecturecomponents.Fragments.HomeFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_blankFragment_to_blankFragment22"
+            app:destination="@id/blankFragment1"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_enter_anim" />
+        <action
+            android:id="@+id/action_blankFragment_to_blank2Fragment"
+            app:destination="@id/blank2Fragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/blankFragment1"
+        android:name="com.outlook.gonzasosa.architecturecomponents.Fragments.Blank1Fragment"
+        android:label="fragment_blank2"
+        tools:layout="@layout/fragment_blank1" />
+    <fragment
+        android:id="@+id/blank2Fragment"
+        android:name="com.outlook.gonzasosa.architecturecomponents.Fragments.Blank2Fragment"
+        android:label="Blank2Fragment" >
+        <action
+            android:id="@+id/action_blank2Fragment_to_blank3Fragment"
+            app:destination="@id/blank3Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blank3Fragment"
+        android:name="com.outlook.gonzasosa.architecturecomponents.Fragments.Blank3Fragment"
+        android:label="Blank3Fragment" >
+        <action
+            android:id="@+id/action_blank3Fragment_to_listFragment"
+            app:destination="@id/listFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.outlook.gonzasosa.architecturecomponents.Fragments.ListFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list" />
+</navigation>
